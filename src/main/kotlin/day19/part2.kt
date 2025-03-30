@@ -23,11 +23,10 @@ fun main() {
 
     val (availableTowels, requestedPatterns) = parseInput(input)
 
-    var totalCombinations = 0L
-    for (pattern in requestedPatterns) {
+    val totalCombinations = requestedPatterns.sumOf { pattern ->
         val combinations = countCombinations(pattern, availableTowels)
         println("$pattern can be constructed in $combinations ways")
-        totalCombinations += combinations
+        combinations
     }
     println("possible num = $totalCombinations")
 }
